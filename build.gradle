@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "org.openjfx.javafxplugin" version "0.0.8"
 }
 
 group 'bayern.steinbrecher'
@@ -9,5 +10,17 @@ repositories {
     mavenCentral()
 }
 
+javafx {
+    version = "14"
+    modules = ["javafx.controls", "javafx.fxml"]
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
+    implementation "org.jetbrains:annotations:19.0.0"
 }
