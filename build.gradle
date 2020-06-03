@@ -22,5 +22,6 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    implementation "bayern.steinbrecher:Wizard:1.20"
     implementation "org.jetbrains:annotations:19.0.0"
 }

@@ -9,13 +9,13 @@ public abstract class ScreenController {
     @NotNull
     protected ScreenManager getScreenManager() {
         if(screenManager == null){
-            throw new IllegalStateException("The main app reference was not set yet.");
+            throw new IllegalStateException("There is no screen manager attached");
         } else {
             return screenManager;
         }
     }
 
-    public void setScreenManager(@NotNull ScreenManager screenManager) {
+    void setScreenManager(@NotNull ScreenManager screenManager) {
         this.screenManager = screenManager;
     }
 
