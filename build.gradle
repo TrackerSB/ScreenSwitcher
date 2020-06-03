@@ -1,13 +1,20 @@
 plugins {
-    id 'java'
+    id "java"
     id "org.openjfx.javafxplugin" version "0.0.8"
+    id "maven-publish"
+    id "signing"
 }
 
-group 'bayern.steinbrecher'
-version '0.1-SNAPSHOT'
+group "bayern.steinbrecher"
+version "0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 javafx {
@@ -24,4 +31,50 @@ tasks.withType(JavaCompile) {
 dependencies {
     implementation "bayern.steinbrecher:Wizard:1.20"
     implementation "org.jetbrains:annotations:19.0.0"
+}
+
+publishing {
+    repositories {
+        maven {
+            def releasesRepoUrl = "$buildDir/repos/releases"
+            def snapshotsRepoUrl = "$buildDir/repos/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = 'ScreenSwitcher'
+                description = 'An abstract structure for JavaFX based applications for handling dialogs and switching between them.'
+                url = 'https://github.com/TrackerSB/ScreenSwitcher'
+                licenses {
+                    license {
+                        name = 'The Beer-Ware License (Revision 42)'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'stefanHuber'
+                        name = 'Stefan Huber'
+                        email = 'stefan.huber.niedling@outlook.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/TrackerSB/ScreenSwitcher.git'
+                    developerConnection = 'scm:git:ssh://github.com/TrackerSB/ScreenSwitcher.git'
+                    url = 'https://steinbrecher.bayern'
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
 }
