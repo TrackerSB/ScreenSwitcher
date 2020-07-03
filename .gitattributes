@@ -1,6 +1,2 @@
 * text eol=lf
-*.bat text eol=crlf
-*.pdf binary
-*.png binary
 LICENSE binary
-LICENCE binary
