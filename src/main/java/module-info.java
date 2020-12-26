@@ -5,5 +5,6 @@ module bayern.steinbrecher.ScreenSwitcher {
     requires java.logging;
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
     requires org.jetbrains.annotations;
 }
