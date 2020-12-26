@@ -7,4 +7,6 @@ module bayern.steinbrecher.ScreenSwitcher {
     requires javafx.fxml;
     requires javafx.graphics;
     requires org.jetbrains.annotations;
+
+    opens bayern.steinbrecher.screenSwitcher to javafx.fxml;
 }
