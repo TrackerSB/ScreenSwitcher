@@ -1,5 +1,5 @@
 module bayern.steinbrecher.ScreenSwitcher {
-    exports bayern.steinbrecher.screens;
+    exports bayern.steinbrecher.screenSwitcher;
 
     requires bayern.steinbrecher.GenericWizard;
     requires java.logging;

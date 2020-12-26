@@ -1,4 +1,4 @@
-package bayern.steinbrecher.screens;
+package bayern.steinbrecher.screenSwitcher;
 
 import bayern.steinbrecher.wizard.EmbeddedWizardPage;
 import bayern.steinbrecher.wizard.Wizard;

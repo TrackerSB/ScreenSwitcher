@@ -1,4 +1,4 @@
-package bayern.steinbrecher.screens;
+package bayern.steinbrecher.screenSwitcher;
 
 import javafx.fxml.FXML;
 import org.jetbrains.annotations.NotNull;

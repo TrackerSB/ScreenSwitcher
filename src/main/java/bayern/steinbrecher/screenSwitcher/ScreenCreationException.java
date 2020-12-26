@@ -1,4 +1,4 @@
-package bayern.steinbrecher.screens;
+package bayern.steinbrecher.screenSwitcher;
 
 public class ScreenCreationException extends Exception {
     public ScreenCreationException() {
