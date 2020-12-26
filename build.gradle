@@ -13,8 +13,8 @@ repositories {
 }
 
 dependencies {
-    implementation "bayern.steinbrecher:Wizard:1.20"
-    implementation "org.jetbrains:annotations:19.0.0"
+    implementation "bayern.steinbrecher:Wizard:1.49"
+    implementation "org.jetbrains:annotations:20.1.0"
 }
 
 compileJava.options.encoding = 'UTF-8'
