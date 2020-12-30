@@ -37,6 +37,12 @@ public abstract class Screen<C extends ScreenController> {
         return root;
     }
 
+    /**
+     * Called directly after {@link ScreenController} is set up in {@link #create(ScreenManager)}. This method is meant
+     * to be used for passing data to the controller which requires as soon as possible after its instantiation.
+     *
+     * @param controller The {@link ScreenController} which controls this {@link Screen}.
+     */
     protected void afterControllerIsInitialized(@NotNull C controller) {
     }
 }
