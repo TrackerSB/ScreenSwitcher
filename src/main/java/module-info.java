@@ -1,5 +1,5 @@
 module bayern.steinbrecher.ScreenSwitcher {
-    exports bayern.steinbrecher.screenSwitcher;
+    exports bayern.steinbrecher.screenswitcher;
 
     requires bayern.steinbrecher.GenericWizard;
     requires java.logging;
@@ -8,5 +8,5 @@ module bayern.steinbrecher.ScreenSwitcher {
     requires javafx.graphics;
     requires org.jetbrains.annotations;
 
-    opens bayern.steinbrecher.screenSwitcher to javafx.fxml;
+    opens bayern.steinbrecher.screenswitcher to javafx.fxml;
 }

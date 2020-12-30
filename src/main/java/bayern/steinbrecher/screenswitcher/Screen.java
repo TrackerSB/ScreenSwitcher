@@ -1,4 +1,4 @@
-package bayern.steinbrecher.screenSwitcher;
+package bayern.steinbrecher.screenswitcher;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

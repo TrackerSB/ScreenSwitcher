@@ -1,4 +1,4 @@
-package bayern.steinbrecher.screenSwitcher;
+package bayern.steinbrecher.screenswitcher;
 
 public class ScreenSwitchFailedException extends Exception {
     public ScreenSwitchFailedException() {
