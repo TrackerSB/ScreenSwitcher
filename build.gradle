@@ -10,6 +10,9 @@ version "0.2.2-rc.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
 }
 
 dependencies {
