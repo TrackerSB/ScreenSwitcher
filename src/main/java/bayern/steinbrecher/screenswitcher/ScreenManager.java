@@ -1,6 +1,6 @@
 package bayern.steinbrecher.screenswitcher;
 
-import javafx.application.Platform;
+import bayern.steinbrecher.javaUtility.PlatformUtility;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
@@ -31,28 +30,6 @@ public class ScreenManager {
         screenBaseStage.setScene(new Scene(mainStack));
     }
 
-    /**
-     * This method runs the given task on the FXApplicationThread. If the current {@link Thread} is not the
-     * FXApplicationThread this method calls {@link Platform#runLater(Runnable)} and waits for it to finish.
-     *
-     * @see javafx.application.Platform#runLater(Runnable)
-     */
-    private static void platformRunLaterAndWait(Runnable task) throws InterruptedException {
-        if (Platform.isFxApplicationThread()) {
-            task.run();
-        } else {
-            CountDownLatch doneLatch = new CountDownLatch(1);
-            Platform.runLater(() -> {
-                try {
-                    task.run();
-                } finally {
-                    doneLatch.countDown();
-                }
-            });
-            doneLatch.await();
-        }
-    }
-
     @NotNull
     private Parent addScreen(@NotNull Screen<?> nextScreen) throws ScreenSwitchFailedException {
         Parent content;
@@ -62,8 +39,8 @@ public class ScreenManager {
             throw new ScreenSwitchFailedException(ex);
         }
         try {
-            platformRunLaterAndWait(() -> screenStack.getChildren().add(content));
-        } catch (InterruptedException ex) {
+            PlatformUtility.runLaterBlocking(() -> screenStack.getChildren().add(content));
+        } catch (Exception ex) {
             throw new ScreenSwitchFailedException("Could not show the content of the screen", ex);
         }
         return content;
@@ -124,8 +101,13 @@ public class ScreenManager {
 
             Text overlayMessage = new Text(message);
 
-            mainStack.getChildren()
-                    .addAll(overlayBackground, overlayMessage);
+            try {
+                PlatformUtility.runLaterBlocking(
+                        () -> mainStack.getChildren()
+                                .addAll(overlayBackground, overlayMessage));
+            } catch (Exception ex) {
+                LOGGER.log(Level.WARNING, "Could not show overlay", ex);
+            }
         }
     }
 

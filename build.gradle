@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation "bayern.steinbrecher:JavaUtility:0.18-rc.9-SNAPSHOT"
     implementation "bayern.steinbrecher:Wizard:1.49"
     implementation "org.jetbrains:annotations:20.1.0"
 }
