@@ -103,6 +103,8 @@ public class ScreenManager {
                     .add("screen-overlay");
 
             Text overlayMessage = new Text(message);
+            overlayMessage.getStyleClass()
+                    .add("screen-overlay-text");
 
             try {
                 PlatformUtility.runLaterBlocking(
