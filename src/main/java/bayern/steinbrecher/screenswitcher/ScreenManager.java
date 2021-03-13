@@ -71,11 +71,10 @@ public class ScreenManager {
     // NOTE To avoid that the caller is able to call RunnableFuture::run() only a Future object must be returned
     public <R> Future<R> switchToWithResult(@NotNull WizardScreen<R> nextScreen) throws ScreenSwitchFailedException {
         Node content = addScreen(nextScreen);
-        RunnableFuture<R> callbackTask = new FutureTask<>(() -> {
-            return nextScreen.getResult()
-                    .orElseThrow(
-                            () -> new AssertionError("The callback must only be called if the result is available"));
-        });
+        RunnableFuture<R> callbackTask = new FutureTask<>(
+                () -> nextScreen.getResult()
+                        .orElseThrow(() -> new AssertionError(
+                                "The callback must only be called if the result is available")));
         waitForWizardEndedScreens.put(content, callbackTask);
         return callbackTask;
     }
