@@ -4,4 +4,4 @@
 ![Maven Central](https://img.shields.io/maven-central/v/bayern.steinbrecher/ScreenSwitcher)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/dd7ca1f70c82432b816d249f13223b4c)](https://www.codacy.com/gh/TrackerSB/ScreenSwitcher/dashboard)
 
-Any description and explanations can be found on the ![project page](https://steinbrecher.bayern/projects/mavenPackages.html#screenSwitcher).
+Any description and explanations can be found on the [project page](https://steinbrecher.bayern/projects/mavenPackages.html#screenSwitcher).
