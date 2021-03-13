@@ -1,6 +1,7 @@
 package bayern.steinbrecher.screenswitcher;
 
 import bayern.steinbrecher.javaUtility.PlatformUtility;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -75,6 +76,8 @@ public class ScreenManager {
     }
 
     /**
+     * NOTE There is no specific design applied to the overlay. Currently the JavaFx default design provides black text
+     * on a black background.
      * @since 0.2.1
      */
     public void showOverlay(@NotNull String message) {
@@ -124,7 +127,7 @@ public class ScreenManager {
     public void hideOverlay() {
         if (isOverlayActive()) {
             ObservableList<Node> children = mainStack.getChildren();
-            children.remove(1, children.size());
+            Platform.runLater(() -> children.remove(1, children.size()));
         }
     }
 }
