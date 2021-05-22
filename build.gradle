@@ -6,7 +6,7 @@ plugins {
 }
 
 group "bayern.steinbrecher"
-version "0.2.2-rc.2-SNAPSHOT"
+version "0.2.2-rc.3-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -67,7 +67,7 @@ publishing {
             pom {
                 name = 'ScreenSwitcher'
                 description = 'An abstract structure for JavaFX based applications for handling dialogs and switching between them.'
-                url = 'https://github.com/TrackerSB/ScreenSwitcher'
+                url = 'https://steinbrecher.bayern'
                 licenses {
                     license {
                         name = 'The Beer-Ware License (Revision 42)'
@@ -83,7 +83,7 @@ publishing {
                 scm {
                     connection = 'scm:git:git://github.com/TrackerSB/ScreenSwitcher.git'
                     developerConnection = 'scm:git:ssh://github.com/TrackerSB/ScreenSwitcher.git'
-                    url = 'https://steinbrecher.bayern'
+                    url = 'https://github.com/TrackerSB/ScreenSwitcher'
                 }
             }
             from components.java
