@@ -40,7 +40,7 @@ public class ScreenManager {
             throw new ScreenSwitchFailedException(ex);
         }
         try {
-            PlatformUtility.runLaterBlocking(() -> screenStack.getChildren().add(content));
+            PlatformUtility.runLaterBlocking(() -> screenStack.getChildren().add(content), Exception.class);
         } catch (Exception ex) {
             throw new ScreenSwitchFailedException("Could not show the content of the screen", ex);
         }
@@ -78,6 +78,7 @@ public class ScreenManager {
     /**
      * NOTE There is no specific design applied to the overlay. Currently the JavaFx default design provides black text
      * on a black background.
+     *
      * @since 0.2.1
      */
     public void showOverlay(@NotNull String message) {
@@ -109,7 +110,7 @@ public class ScreenManager {
             try {
                 PlatformUtility.runLaterBlocking(
                         () -> mainStack.getChildren()
-                                .addAll(overlayBackground, overlayMessage));
+                                .addAll(overlayBackground, overlayMessage), Exception.class);
             } catch (Exception ex) {
                 LOGGER.log(Level.WARNING, "Could not show overlay", ex);
             }
