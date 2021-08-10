@@ -16,9 +16,9 @@ repositories {
 }
 
 dependencies {
-    implementation "bayern.steinbrecher:JavaUtility:0.18-rc.9-SNAPSHOT"
-    implementation "bayern.steinbrecher:Wizard:1.49"
-    implementation "org.jetbrains:annotations:20.1.0"
+    implementation "bayern.steinbrecher:JavaUtility:0.18-rc.12-SNAPSHOT"
+    implementation 'bayern.steinbrecher:Wizard:1.60'
+    implementation 'org.jetbrains:annotations:21.0.1'
 }
 
 sourceCompatibility = 15
