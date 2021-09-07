@@ -17,12 +17,12 @@ repositories {
 
 dependencies {
     implementation "bayern.steinbrecher:JavaUtility:0.18-rc.12-SNAPSHOT"
-    implementation 'bayern.steinbrecher:Wizard:1.60'
-    implementation 'org.jetbrains:annotations:21.0.1'
+    implementation 'bayern.steinbrecher:GenericWizard:1.61-rc.18-SNAPSHOT'
+    implementation 'org.jetbrains:annotations:22.0.0'
 }
 
-sourceCompatibility = 15
-targetCompatibility = 15
+sourceCompatibility = 16
+targetCompatibility = 16
 
 compileJava.options.encoding = 'UTF-8'
 
