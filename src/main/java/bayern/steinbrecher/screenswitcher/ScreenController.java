@@ -8,7 +8,7 @@ public abstract class ScreenController {
 
     @NotNull
     protected ScreenManager getScreenManager() {
-        if(screenManager == null){
+        if (screenManager == null) {
             throw new IllegalStateException("There is no screen manager attached");
         } else {
             return screenManager;
@@ -17,10 +17,19 @@ public abstract class ScreenController {
 
     void setScreenManager(@NotNull ScreenManager screenManager) {
         this.screenManager = screenManager;
+        afterScreenManagerIsSet();
     }
 
     @FXML
-    protected void switchToPreviousScreen(){
+    protected void switchToPreviousScreen() {
         getScreenManager().switchBack();
+    }
+
+    /**
+     * This method is called each time the associated {@link ScreenManager} changes. Typically, this happens exactly
+     * once. Especially it is called after any {@link FXML}-like {@code initialize()}-method. Thus, in contrast to such
+     * {@code initialize()}-methods this function guarantees that the associated {@link ScreenManager} is set.
+     */
+    protected void afterScreenManagerIsSet() {
     }
 }
