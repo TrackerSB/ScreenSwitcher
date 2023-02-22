@@ -1,6 +1,6 @@
 plugins {
     id "java-library"
-    id "org.openjfx.javafxplugin" version "0.0.9"
+    id "org.openjfx.javafxplugin" version '0.0.10'
     id "maven-publish"
     id "signing"
 }
@@ -16,13 +16,13 @@ repositories {
 }
 
 dependencies {
-    implementation "bayern.steinbrecher:JavaUtility:0.18"
-    implementation 'bayern.steinbrecher:GenericWizard:1.61-rc.18-SNAPSHOT'
-    implementation 'org.jetbrains:annotations:22.0.0'
+    implementation "bayern.steinbrecher:JavaUtility:0.19-rc.1-SNAPSHOT"
+    implementation 'bayern.steinbrecher:GenericWizard:1.61-rc.19-SNAPSHOT'
+    compileOnly 'org.jetbrains:annotations:24.0.0'
 }
 
-sourceCompatibility = 16
-targetCompatibility = 16
+sourceCompatibility = 19
+targetCompatibility = 19
 
 compileJava.options.encoding = 'UTF-8'
 
