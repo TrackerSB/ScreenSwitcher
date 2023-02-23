@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-    implementation "bayern.steinbrecher:JavaUtility:0.19-rc.1-SNAPSHOT"
-    implementation 'bayern.steinbrecher:GenericWizard:1.61-rc.19-SNAPSHOT'
+    implementation "bayern.steinbrecher:JavaUtility:0.19-rc.2-SNAPSHOT"
+    implementation 'bayern.steinbrecher:GenericWizard:1.61-rc.20-SNAPSHOT'
     compileOnly 'org.jetbrains:annotations:24.0.0'
 }
 
